@@ -1,0 +1,33 @@
+[posts]
+- id
+- title
+- permalink
+- content
+- publish_date
+- uid
+- image
+- image_thumbnail 
+
+[categories]
+- id
+- category
+
+[posts_category_link]
+- id
+- pid
+- cid
+
+[users]
+- id
+- firstname
+- lastname
+- email
+- avatar
+- password
+
+[comments]
+- id
+- author
+- comment
+- publish_date
+- pid

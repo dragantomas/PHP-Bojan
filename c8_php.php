@@ -19,7 +19,7 @@ interface iVraboten {
 
 	public function PokaziPodatoci(); 
 
-	}
+}
 
 class Smetkovoditel extends Vraboten implements iVraboten {
 
@@ -54,6 +54,10 @@ echo '<br/>';
 
 print_r($profesor1);
 
+
+class StaticniMetodi {
+	public static 
+}
 
 
 
