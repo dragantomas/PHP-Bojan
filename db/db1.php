@@ -7,7 +7,7 @@
 $username = 'root';
 $password = '';
 $host = '127.0.0.1';
-$dbname = 'posts_db';
+$dbname = 'blog';
 
 //  DSN - Data Source Name
 
@@ -40,19 +40,40 @@ $query->execute();
 
 }
 
+$isValidCategory = isset($_POST['category'])
+	&& $_POST['category'] != '';
+
+	if($isValidCategory){
+		$sql = 'insert into categories (category) values (:category)';
+
+$query = $DB->prepare($sql);
+
+$query->bindValue(':category', $_POST['category'], PDO::PARAM_STR);
+
+$query->execute();
+		
+	}
+
 
 // print_r($DB);	
 
 $sql = 'select * from users';
 
+$sql_categories = 'select * from categories';
+
 
 $query = $DB->query($sql);
 $query->execute();
+
+$query_categories = $DB->query($sql_categories);
+$query_categories->execute();
 
 
 // print_r($query->fetchAll(PDO::FETCH_ASSOC));
 
 $korisnici = $query->fetchAll(PDO::FETCH_ASSOC);
+
+$kategorii = $query_categories->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -66,12 +87,12 @@ $korisnici = $query->fetchAll(PDO::FETCH_ASSOC);
 
 <table border="1" width="80%">
 	<tr>
-		<td>id</td>
-		<td>firstname</td>
-		<td>lastname</td>
-		<td>email</td>
-		<td>avatar</td>
-		<td>password</td>
+		<td><b>id</b></td>
+		<td><b>firstname</b></td>
+		<td><b>lastname</b></td>
+		<td><b>email</b></td>
+		<td><b>avatar</b></td>
+		<td><b>password</b></td>
 	</tr>
 
 	<?php foreach ($korisnici as $row){ ?>
@@ -87,10 +108,37 @@ $korisnici = $query->fetchAll(PDO::FETCH_ASSOC);
 	<?php } ?>
 </table>
 
+<br/>
+<br/>
 
-ZA DOMASNA RABOTA
+<form action="db1.php" method="post" autocomplete="off">
+	<input type="text" name="category" placeholder="Category" >
+	<button type="submit">SAVE</button>
+</form>
 
-DA SE DODADAT KATEGORII VO BAZATA
+<br/>
+
+<table border="1" width="80%">
+	<tr>
+		<td><b>id</b></td>
+		<td><b>Category</b></td>
+	</tr>
+
+	<?php foreach ($kategorii as $row){ ?>
+
+	<tr>
+		<td><?=$row['id'];?></td>
+		<td><?=$row['category'];?></td>
+	</tr>
+	<?php } ?>
+	</table>
+
+
+
+
+<!-- ZA DOMASNA RABOTA -->
+
+<!-- DA SE DODADAT KATEGORII VO BAZATA -->
 
 
 
