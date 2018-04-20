@@ -7,7 +7,7 @@
 $username = 'root';
 $password = '';
 $host = '127.0.0.1';
-$dbname = 'blog';
+$dbname = 'posts_db';
 
 //  DSN - Data Source Name
 
