@@ -69,8 +69,8 @@ $postovi = $query->fetchAll(PDO::FETCH_ASSOC);
 
 	<tr>
 		<td><?=$row['id'];?></td>
-		<td><?=$row['content'];?></td>
 		<td><?=$row['title'];?></td>
+		<td><?=$row['content'];?></td>
 		<td><?=$row['permalink'];?></td>
 		<td><?=$row['publish_date'];?></td>
 	</tr>
