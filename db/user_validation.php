@@ -3,13 +3,13 @@
 // USER VALIDATION
 
 
-$EMAIL = 'asdas@ddd.com';
-$PASSWORD = 'asdasda';
+$EMAIL = 'dat.tomas@gmail.com';
+$PASSWORD = 'password123';
 
 $username = 'root';
 $password = '';
 $host = '127.0.0.1';
-$dbname = 'posts_db';
+$dbname = 'blog';
 
 $dsn = 'mysql:host='.$host.';dbname='.$dbname;
 
