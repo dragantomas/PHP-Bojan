@@ -10,7 +10,7 @@
 $username = 'root';
 $password = '';
 $host = '127.0.0.1';
-$dbname = 'blog';
+$dbname = 'posts_db';
 
 $dsn = 'mysql:host='.$host.';dbname='.$dbname;
 
@@ -72,7 +72,7 @@ echo '<br/>';
   
 // Update Category
 
-$sql_update = "update categories set category='Real Madrid' where id=24";
+$sql_update = "update categories set category='Real Madrid' where id=2";
 
 $query = $db->query($sql_update);
 $query->execute();
